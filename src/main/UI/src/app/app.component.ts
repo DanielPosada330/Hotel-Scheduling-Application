@@ -5,9 +5,6 @@ import { Observable } from 'rxjs';
 import {map} from "rxjs/operators";
 
 
-
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,6 +15,10 @@ export class AppComponent implements OnInit{
   constructor(private httpClient:HttpClient){}
 
   private baseURL:string='http://localhost:8080';
+
+  // Create message variables for welcome messages in English and French
+  welcomeMessageEnglish$!: Observable<string>
+  welcomeMessageFrench$!: Observable<string>
 
   private getUrl:string = this.baseURL + '/room/reservation/v1/';
   private postUrl:string = this.baseURL + '/room/reservation/v1';
@@ -33,6 +34,10 @@ export class AppComponent implements OnInit{
         checkin: new FormControl(' '),
         checkout: new FormControl(' ')
       });
+
+      // Implement HTTP GET requests and print welcome messages in both English and French to the console when received.
+      this.welcomeMessageEnglish$ = this.httpClient.get(this.baseURL + '/welcome?lang=en-US', {responseType: 'text'} )
+      this.welcomeMessageFrench$ = this.httpClient.get(this.baseURL + '/welcome?lang=fr-CA', {responseType: 'text'} )
 
  //     this.rooms=ROOMS;
 
