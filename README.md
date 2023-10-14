@@ -58,9 +58,14 @@ Note: It is not necessary to convert the values of the prices.
 3.  Display the time for an online live presentation held at the Landon Hotel by doing the following:
 
 a.  Write a Java method to convert times between eastern time (ET), mountain time (MT), and coordinated universal time (UTC) zones.
+1) Create TimeZoneConversion.java class that holds method to convert times between eastern time (ET), mountain time (MT), and coordinated universal time (UTC) zones.
+2) Create TimeZoneConversionController.java file to handle API responses for time zone conversions.
 
 b.  Use the time zone conversion method from part B3a to display a message stating the time in all three times zones in hours and minutes for an online, live presentation held at the Landon Hotel. The times should be displayed as ET, MT, and UTC.
-
+1) Modify TimeZoneConversionController.java, Lines 14-17: Add message to display when Controller is activated.
+2) Modify app.component.ts, Lines 22-24: Create variable to show time zones.
+3) Modify app.component.ts, Lines 44-46: Add HTTP get request to print out live presentation banner to the console when received.
+4) Modify app.component.html, 35-37: Add Presentation message with EST, MT and UTC times to html frontend.
 C.  Explain how you would deploy the Spring application with a Java back end and an Angular front end to cloud services and create a Dockerfile using the attached supporting document "How to Create a Docker Account" by doing the following:
 
 1.  Build the Dockerfile to create a single image that includes all code, including modifications made in parts B1 to B3. Commit and push the final Dockerfile to GitLab.
