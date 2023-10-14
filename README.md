@@ -69,15 +69,36 @@ b.  Use the time zone conversion method from part B3a to display a message stati
 C.  Explain how you would deploy the Spring application with a Java back end and an Angular front end to cloud services and create a Dockerfile using the attached supporting document "How to Create a Docker Account" by doing the following:
 
 1.  Build the Dockerfile to create a single image that includes all code, including modifications made in parts B1 to B3. Commit and push the final Dockerfile to GitLab.
-
+1) Create Dockerfile
 2.  Test the Dockerfile by doing the following:
 
 •   Create a Docker image of the current multithreaded Spring application.
+1) Create Docker image by creating jar files and running in Dockerfile.
 
 •   Run the Docker image in a container and give the container a name that includes D387_[student ID].
 
-•   Submit a screenshot capture of the running application with evidence it is running in the container.
+![img_4.png](img_4.png)
 
+•   Submit a screenshot capture of the running application with evidence it is running in the container.
+![img.png](img.png)
+![img_1.png](img_1.png)
+![img_2.png](img_2.png)
+![img_3.png](img_3.png)
 3.  Describe how you would deploy the current multithreaded Spring application to the cloud. Include the name of the cloud service provider you would use.
+
+As I would like to eventually gain the AWS Certified Cloud Practitioner certification, I'll be choosing AWS as the cloud service provider.
+
+First we would need to create a Dockerfile to hold our image, but make it read from the environment rather than hardwire it to a port, as we wouldn't know the 
+availability of the port at any given on any given computer or network. To do this, we would go to our angular files (app.component.ts), add the necessary imports, 
+and switch the baseURL from being a port to instead having it set to a location path, so for example: from "http://localhost:8080" to "this.location.path()". 
+Then, we would need to create our jar file of the multithreaded Spring application by cleaning and packaging the application via Maven. 
+We would then copy that jar file into a base image that contains the Java Development Kit (or Java Runtime Environment) and run our Dockerfile.
+From there we would create the container so that we could run the image in the container. Once we confirmed that the container was working as intended, we would then
+want to push this Docker Hub. We would get our account, access token, create a repository on Docker Hub and push our image to our repository.
+
+The next part would be to log into AWS and set up an IAMS (Identity and Access Management) account in order to manage the necessary permissions.
+Our next step then is to launch an EC2 linux instance, or virtual machines(VM), that runs on AWS Cloud. Our next step would be to start an AWS session via session manager
+and utilize our previously created instance and install Docker into our instance. Finally, we would pull our image from Docker Hub and deploy it in a container,
+thus successfully deploying the application to the cloud for multiple users to use.
 
 Note: Remember to commit and push your changes to GitLab.
