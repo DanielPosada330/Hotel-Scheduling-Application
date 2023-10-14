@@ -49,6 +49,9 @@ b.  Display the welcome message in both English and French by applying the resou
 Note: You may use Google Translate for the wording of your welcome message.
 
 2.  Modify the front end to display the price for a reservation in currency rates for U.S. dollars ($), Canadian dollars (C$), and euros (€) on different lines.
+1) Modify app.component.ts, Lines 111-112: Add priceCAD and priceEUR variables.
+2) Modify app.component.ts, Lines 57-63: Create conversion between USD, CAD and EUR.
+3) Modify app.component.html, Lines 83-85: Add CAD and EUR prices to html frontend.
 
 Note: It is not necessary to convert the values of the prices.
 
