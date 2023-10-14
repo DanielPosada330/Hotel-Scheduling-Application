@@ -54,9 +54,13 @@ export class AppComponent implements OnInit{
     onSubmit({value,valid}:{value:Roomsearch,valid:boolean}){
       this.getAll().subscribe(
 
-        rooms => {console.log(Object.values(rooms)[0]);this.rooms=<Room[]>Object.values(rooms)[0]; }
-
-
+        rooms => {console.log(Object.values(rooms)[0]);this.rooms=<Room[]>Object.values(rooms)[0];
+          // Create conversion between USD, CAD and EUR
+          this.rooms.forEach(room => {
+            room.priceCAD = (Number(room.price) * 1.37).toFixed(2);
+            room.priceEUR = (Number(room.price) * 0.95).toFixed(2);
+          });
+        }
       );
     }
     reserveRoom(value:string){
@@ -104,6 +108,8 @@ export interface Room{
   id:string;
   roomNumber:string;
   price:string;
+  priceCAD:string;
+  priceEUR:string;
   links:string;
 
 }
