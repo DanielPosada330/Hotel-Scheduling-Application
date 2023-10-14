@@ -80,10 +80,12 @@ C.  Explain how you would deploy the Spring application with a Java back end and
 ![img_4.png](img_4.png)
 
 •   Submit a screenshot capture of the running application with evidence it is running in the container.
+
 ![img.png](img.png)
 ![img_1.png](img_1.png)
 ![img_2.png](img_2.png)
 ![img_3.png](img_3.png)
+
 3.  Describe how you would deploy the current multithreaded Spring application to the cloud. Include the name of the cloud service provider you would use.
 
 As I would like to eventually gain the AWS Certified Cloud Practitioner certification, I'll be choosing AWS as the cloud service provider.
