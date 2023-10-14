@@ -20,6 +20,9 @@ export class AppComponent implements OnInit{
   welcomeMessageEnglish$!: Observable<string>
   welcomeMessageFrench$!: Observable<string>
 
+  // Create variable to show time zones
+  bannerPresentation$!: Observable<string>
+
   private getUrl:string = this.baseURL + '/room/reservation/v1/';
   private postUrl:string = this.baseURL + '/room/reservation/v1';
   public submitted!:boolean;
@@ -38,6 +41,9 @@ export class AppComponent implements OnInit{
       // Implement HTTP GET requests and print welcome messages in both English and French to the console when received.
       this.welcomeMessageEnglish$ = this.httpClient.get(this.baseURL + '/welcome?lang=en-US', {responseType: 'text'} )
       this.welcomeMessageFrench$ = this.httpClient.get(this.baseURL + '/welcome?lang=fr-CA', {responseType: 'text'} )
+
+      // Implement HTTP get request to print out live presentation banner to the console when received.
+      this.bannerPresentation$ = this.httpClient.get(this.baseURL + '/presentation', {responseType: 'text'})
 
  //     this.rooms=ROOMS;
 
